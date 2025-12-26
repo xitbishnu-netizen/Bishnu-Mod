@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BISHNU PAPAJI V14 | ON TOP</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Source+Code+Pro:wght@400;700&display=swap');
+
+        :root {
+            --neon: #00f2ff;
+            --pink: #ff007a;
+            --terminal: #00ff41;
+            --glass: rgba(0, 0, 0, 0.85);
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background: #000; color: #fff; font-family: 'Orbitron', sans-serif;
+            overflow: hidden;
+        }
+
+        /* 🎥 VIDEO BACKGROUND */
+        #bgVideo {
+            position: fixed; right: 0; bottom: 0;
+            min-width: 100%; min-height: 100%;
+            z-index: -1; filter: brightness(0.4) contrast(1.2);
+            object-fit: cover;
+        }
+
+        /* 📟 TERMINAL UI */
+        .container {
+            width: 380px; background: var(--glass);
+            border: 1px solid var(--neon); padding: 30px;
+            position: relative; backdrop-filter: blur(15px);
+            box-shadow: 0 0 50px rgba(0, 242, 255, 0.2);
+            border-radius: 2px;
+        }
+
+        .header {
+            text-align: center; border-bottom: 1px solid var(--neon);
+            padding-bottom: 15px; margin-bottom: 25px;
+        }
+
+        .rainbow {
+            background: linear-gradient(90deg, #fff, var(--neon), var(--pink), #fff);
+            background-size: 200%; -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: move-bg 3s linear infinite; font-weight: 900;
+        }
+        @keyframes move-bg { to { background-position: 200%; } }
+
+        /* ⌨️ INPUT & BUTTONS */
+        input {
+            width: 100%; padding: 15px; background: rgba(0,0,0,0.6);
+            border: 1px solid #333; color: var(--neon);
+            text-align: center; font-family: 'Source Code Pro', monospace;
+            box-sizing: border-box; margin-bottom: 15px;
+        }
+
+        .btn {
+            width: 100%; padding: 15px; border: none; font-weight: 900;
+            cursor: pointer; margin-bottom: 10px; transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-neon { background: var(--neon); color: #000; box-shadow: 0 0 15px var(--neon); }
+        .btn-pink { background: none; border: 1px solid var(--pink); color: var(--pink); }
+        .btn:hover { transform: scale(1.02); filter: brightness(1.2); }
+
+        /* 🌀 LOADING BAR */
+        #loaderBox { display: none; text-align: center; }
+        .bar-bg { width: 100%; height: 6px; background: #222; margin: 20px 0; }
+        .bar-fill { width: 0%; height: 100%; background: var(--neon); transition: 0.1s; }
+
+        .hidden { display: none !important; }
+        
+        .item { 
+            display: flex; justify-content: space-between; padding: 12px; 
+            background: rgba(0, 242, 255, 0.05); margin-bottom: 5px; 
+            border-left: 3px solid var(--neon); font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop id="bgVideo">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-matrix-style-green-code-digital-effect-2696-large.mp4" type="video/mp4">
+    </video>
+
+    <div id="loginPage" class="container">
+        <div class="header">
+            <h1 class="rainbow">BISHNU PAPAJI V14</h1>
+            <p style="font-size: 9px; color: var(--neon);">STATUS: BYPASSING ENCRYPTION...</p>
+        </div>
+        <input type="text" id="keyInput" placeholder="ENTER ACCESS KEY">
+        <button class="btn btn-neon" onclick="login()">INITIALIZE MOD</button>
+        <button class="btn btn-pink" onclick="startLoading()">GET KEY (KEY PAGE)</button>
+    </div>
+
+    <div id="loaderBox" class="container">
+        <h2 style="color:var(--neon)">DECRYPTING...</h2>
+        <div class="bar-bg"><div id="progressFill" class="bar-fill"></div></div>
+        <h1 id="percentText">0%</h1>
+        <p style="font-size:10px; font-family: 'Source Code Pro';">Target: bishnupapajiontopkey</p>
+    </div>
+
+    <div id="modMenu" class="container hidden">
+        <div style="display:flex; justify-content:space-between; border-bottom:1px solid #333; padding-bottom:10px;">
+            <span class="rainbow">VIP MENU ACTIVE</span>
+            <span id="timer" style="color:red; font-weight:bold;">01:00</span>
+        </div>
+        <div style="height:280px; overflow-y:auto; margin-top:15px; font-family: 'Source Code Pro';">
+            <div class="item"><span>AUTO AIM LOCK</span> <input type="checkbox"></div>
+            <div class="item"><span>MAGIC BULLET V4</span> <input type="checkbox"></div>
+            <div class="item"><span>SKELETON ESP</span> <input type="checkbox"></div>
+            <div class="item"><span>SPEED MULTIPLIER</span> <input type="checkbox"></div>
+            <div class="item"><span>ANTIBAN LOBBY</span> <input type="checkbox" checked></div>
+        </div>
+        <button class="btn btn-pink" onclick="window.location.href='https://t.me/+AWZPaAqn2utmZjZl'" style="margin-top:10px;">JOIN TELEGRAM</button>
+    </div>
+
+    <script>
+        // MASTER CONFIG
+        const KEY_PAGE_URL = "https://aditya.webhosting.myvippanel.shop/view.php?site=bishnupapajiontopkey";
+        const CORRECT_KEY = "BISHNU_PAPAJI_ONTOP"; // Update this based on your panel key
+
+        function startLoading() {
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('loaderBox').style.display = 'block';
+            let count = 0;
+            const loading = setInterval(() => {
+                count += Math.floor(Math.random() * 3) + 1;
+                if(count > 100) count = 100;
+                document.getElementById('progressFill').style.width = count + "%";
+                document.getElementById('percentText').innerText = count + "%";
+                if(count >= 100) {
+                    clearInterval(loading);
+                    window.location.href = KEY_PAGE_URL;
+                }
+            }, 50);
+        }
+
+        function login() {
+            const input = document.getElementById('keyInput').value.trim();
+            if(input === CORRECT_KEY || input === "BISHNU_PAPAJI") {
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('modMenu').classList.remove('hidden');
+                startTrial();
+            } else {
+                alert("❌ ACCESS DENIED: VISIT KEY PAGE FIRST");
+            }
+        }
+
+        function startTrial() {
+            let s = 60;
+            const t = setInterval(() => {
+                s--;
+                let m = Math.floor(s/60); let sec = s%60;
+                document.getElementById('timer').innerText = `0${m}:${sec < 10 ? '0'+sec : sec}`;
+                if(s <= 0) {
+                    clearInterval(t);
+                    alert("TRIAL EXPIRED! JOIN TELEGRAM FOR V15");
+                    window.location.href = "https://t.me/+AWZPaAqn2utmZjZl";
+                }
+            }, 1000);
+        }
+
+        // AUTO VIBRATE ON CLICK
+        document.addEventListener('click', function() {
+            if (navigator.vibrate) navigator.vibrate(40);
+        });
+    </script>
+</body>
+</html>
